@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PhoneSubscriber.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">solid</a> &gt; <a href="index.source.html" class="el_package">ie.gmit.open</a> &gt; <span class="el_source">PhoneSubscriber.java</span></div><h1>PhoneSubscriber.java</h1><pre class="source lang-java linenums">package ie.gmit.open;
+
+import java.util.List;
+
+<span class="nc" id="L5">public class PhoneSubscriber {</span>
+
+    private Long subscriberId;
+
+    private String address;
+
+    private Long phoneNumber;
+
+    private int baseRate;
+
+    public double calculateBill() {
+<span class="nc" id="L16">        List&lt;CallHistory.Call&gt; sessions = CallHistory.getCurrentCalls(subscriberId);</span>
+<span class="nc" id="L17">        long totalDuration = sessions.stream().mapToLong(CallHistory.Call::getDuration).sum();</span>
+<span class="nc" id="L18">        return totalDuration*baseRate/100;</span>
+    }
+
+    /**
+     * @return the subscriberId
+     */
+    public Long getSubscriberId() {
+<span class="nc" id="L25">        return subscriberId;</span>
+    }
+
+    /**
+     * @param subscriberId the subscriberId to set
+     */
+    public void setSubscriberId(Long subscriberId) {
+<span class="nc" id="L32">        this.subscriberId = subscriberId;</span>
+<span class="nc" id="L33">    }</span>
+
+    /**
+     * @return the address
+     */
+    public String getAddress() {
+<span class="nc" id="L39">        return address;</span>
+    }
+
+    /**
+     * @param address the address to set
+     */
+    public void setAddress(String address) {
+<span class="nc" id="L46">        this.address = address;</span>
+<span class="nc" id="L47">    }</span>
+
+    /**
+     * @return the phoneNumber
+     */
+    public Long getPhoneNumber() {
+<span class="nc" id="L53">        return phoneNumber;</span>
+    }
+
+    /**
+     * @param phoneNumber the phoneNumber to set
+     */
+    public void setPhoneNumber(Long phoneNumber) {
+<span class="nc" id="L60">        this.phoneNumber = phoneNumber;</span>
+<span class="nc" id="L61">    }</span>
+
+    /**
+     * @return the baseRate
+     */
+    public int getBaseRate() {
+<span class="nc" id="L67">        return baseRate;</span>
+    }
+
+    /**
+     * @param baseRate the baseRate to set
+     */
+    public void setBaseRate(int baseRate) {
+<span class="nc" id="L74">        this.baseRate = baseRate;</span>
+<span class="nc" id="L75">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
